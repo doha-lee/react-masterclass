@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 interface ContainerProps {
@@ -21,6 +21,10 @@ interface CircleProps {
 }
 
 function Circle({ bgColor, borderColor, text = 'default Text' }: CircleProps) {
+	// 초기값의 타입을 자동으로 지정함 → 타입지정 불필요
+	// undefined, null 방지 : 배열, 객체에서는 타입 지정해주는 것이 좋음
+	const [value, setValue] = useState<string | null>('');
+
 	return (
 		<div>
 			<Container borderColor={borderColor ?? bgColor} bgColor={bgColor}>
